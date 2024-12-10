@@ -1,0 +1,7 @@
+Alice,85
+Bob,90
+Charlie,invalid
+David,105
+Eve,78
+Alma,56
+Selim,23
