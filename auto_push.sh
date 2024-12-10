@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory and Git repository paths
-WATCH_DIR="/Users/aidarozanski/IdeaProjects/Database/src/main"
+WATCH_DIR="/Users/aidarozanski/IdeaProjects/Database"
 REPO_DIR="/Users/aidarozanski/IdeaProjects/Database"
 
 # Log file path
