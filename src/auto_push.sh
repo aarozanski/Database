@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to monitor (change this to the path of your directory)
-WATCH_DIR="/Users/aidarozanski/IdeaProjects/Database"
+WATCH_DIR="/Users/aidarozanski/IdeaProjects/Database/src"
 
 # Git repository directory
 REPO_DIR="/Users/aidarozanski/IdeaProjects/Database"
