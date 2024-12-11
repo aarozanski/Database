@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        DatabaseConnection.initializeDatabase(); // Assuming you have this method to set up your database
+        DatabaseConnection.initializeDatabase(); // Ensure this method creates the table
 
-        while (true) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        CreateTable.createNewTable(); // Method that creates the table if it doesn't exist
+
+        while (running) {
             System.out.println("\nChoose an operation:");
             System.out.println("1 - Insert new student");
             System.out.println("2 - Delete a student");
@@ -45,14 +49,15 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Exiting...");
-                    scanner.close();
-                    System.exit(0);
+                    running = false;
                     break;
                 default:
                     System.out.println("Invalid option. Please enter 1-5.");
                     break;
             }
         }
+        scanner.close();
     }
 }
+
 
