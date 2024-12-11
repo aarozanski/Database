@@ -15,12 +15,6 @@
     </properties>
 
     <dependencies>
-        <!-- MySQL JDBC Driver -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.29</version>
-        </dependency>
 
         <!-- sqlite JDBC Driver -->
         <dependency>
@@ -29,12 +23,6 @@
             <version>3.2.1</version>
         </dependency>
 
-        <!-- Logback Classic (Implements SLF4J) -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.11</version>
-        </dependency>
 
         <!-- SLF4J Simple Binding -->
         <dependency>
