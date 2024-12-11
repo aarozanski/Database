@@ -1,4 +1,4 @@
-package week_8;
+package week_8.bookstore;
 import java.sql.*;
 
 class Bookstore {

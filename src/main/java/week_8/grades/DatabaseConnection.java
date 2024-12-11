@@ -1,4 +1,4 @@
-package week_8;
+package week_8.grades;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
