@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:sqlite:path_to_your_database.db";
+    private static final String URL = "jdbc:sqlite:/Users/aidarozanski/Documents/jdbc_hw2/grades.db";
 
     public static Connection connect() {
         Connection conn = null;
