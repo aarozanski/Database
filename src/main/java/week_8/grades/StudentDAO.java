@@ -8,8 +8,9 @@ public class StudentDAO {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
+            System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.err.println("Cannot connect to the database: " + e.getMessage());
         }
         return conn;
     }
@@ -25,7 +26,9 @@ public class StudentDAO {
             stmt.execute(sql);
             System.out.println("Table has been created.");
         } catch (SQLException e) {
-            System.out.println("Create table failed: " + e.getMessage());
+            System.err.println("Failed to create table: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.err.println("Connection object is null: " + e.getMessage());
         }
     }
 
