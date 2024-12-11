@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/mysql_db"; // Correct database name
+    private static final String URL = "jdbc:mysql://localhost:3306/hellos.db";
 
     static {
         try {
@@ -19,12 +19,10 @@ public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
         Properties properties = new Properties();
         properties.put("user", "root");
-        properties.put("password", "Katmandu7$");
+        properties.put("password", "Katmandu7$"); // Make sure this password meets your MySQL configuration's requirements
         properties.put("useSSL", "false");
         properties.put("autoReconnect", "true");
 
         return DriverManager.getConnection(URL, properties);
     }
 }
-
-
