@@ -1,12 +1,18 @@
 package week_8.grades;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class StudentDAO {
+    private Connection connect() {
+        String url = "jdbc:sqlite:/Users/aidarozanski/Documents/jdbc_hw2/grades.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
 
     public void createTable() {
         String sql = "CREATE TABLE IF NOT EXISTS students (" +
@@ -14,11 +20,10 @@ public class StudentDAO {
                 "name TEXT NOT NULL, " +
                 "age INTEGER, " +
                 "grade DOUBLE);";
-
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = this.connect();
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Table 'students' has been created.");
+            System.out.println("Table has been created.");
         } catch (SQLException e) {
             System.out.println("Create table failed: " + e.getMessage());
         }
@@ -26,7 +31,7 @@ public class StudentDAO {
 
     public void insertStudent(String name, int age, double grade) {
         String sql = "INSERT INTO students(name, age, grade) VALUES(?,?,?)";
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, name);
             pstmt.setInt(2, age);
@@ -40,7 +45,7 @@ public class StudentDAO {
 
     public void deleteStudent(int id) {
         String sql = "DELETE FROM students WHERE id = ?";
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             int affectedRows = pstmt.executeUpdate();
@@ -56,7 +61,7 @@ public class StudentDAO {
 
     public void updateStudentGrade(int id, double grade) {
         String sql = "UPDATE students SET grade = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, grade);
             pstmt.setInt(2, id);
@@ -73,7 +78,7 @@ public class StudentDAO {
 
     public void listAllStudents() {
         String sql = "SELECT id, name, age, grade FROM students";
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
