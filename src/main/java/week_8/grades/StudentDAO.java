@@ -36,12 +36,17 @@ public class StudentDAO {
             pstmt.setString(1, name);
             pstmt.setInt(2, age);
             pstmt.setDouble(3, grade);
-            pstmt.executeUpdate();
-            System.out.println("Record has been inserted.");
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Record has been inserted.");
+                System.out.println("Current Students List:");
+                this.listAllStudents();  // List all students to verify insertion
+            }
         } catch (SQLException e) {
             System.out.println("Insert failed: " + e.getMessage());
         }
     }
+
 
     public void deleteStudent(int id) {
         String sql = "DELETE FROM students WHERE id = ?";
