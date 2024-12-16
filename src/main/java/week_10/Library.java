@@ -17,5 +17,8 @@ public class Library {
             books.stream().filter(Book::isAvailable).forEach(System.out::println);
         }
     }
+
+    public void checkOutBook(int i) {
+    }
 }
 
