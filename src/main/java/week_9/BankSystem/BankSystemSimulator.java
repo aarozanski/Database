@@ -1,4 +1,4 @@
-package week_9;
+package week_9.BankSystem;
 
 public class BankSystemSimulator {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package week_9;
+package week_9.ThreadCsProcesses;
 
 public class ThreadExample implements Runnable {
     private final int countUntil; // Variable to store the maximum count for each thread
