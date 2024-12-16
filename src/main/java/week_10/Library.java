@@ -1,6 +1,5 @@
 package week_10;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
@@ -18,16 +17,28 @@ public class Library {
         }
     }
 
-    public void checkOutBook(int i) {
+    public synchronized int size() {
+        return books.size();
     }
 
-    public void returnBook(int i) {
+    public synchronized void checkOutBook(int index) {
+        if (index >= 0 && index < books.size()) {
+            books.get(index).checkOut();
+        }
     }
 
-    public void isAvailable(int i) {
+    public synchronized void returnBook(int index) {
+        if (index >= 0 && index < books.size()) {
+            books.get(index).returnBook();
+        }
     }
 
-    public int size() {
+    public synchronized boolean isAvailable(int index) {
+        if (index >= 0 && index < books.size()) {
+            return books.get(index).isAvailable();
+        }
+        return false;
     }
 }
+
 
