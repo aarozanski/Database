@@ -20,5 +20,14 @@ public class Library {
 
     public void checkOutBook(int i) {
     }
+
+    public void returnBook(int i) {
+    }
+
+    public void isAvailable(int i) {
+    }
+
+    public int size() {
+    }
 }
 
