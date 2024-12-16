@@ -10,25 +10,33 @@ public class Book {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.isAvailable = true; // All books start as available
+        this.isAvailable = true;
     }
 
-    public synchronized void checkOut() {
+    public synchronized void checkOut(String userName) {
         if (isAvailable) {
             isAvailable = false;
-            System.out.println("Book checked out: " + title);
+            System.out.println(userName + ": Checking out \"" + title + "\"");
         } else {
-            System.out.println("Book not available: " + title);
+            System.out.println(userName + ": \"" + title + "\" is already checked out.");
         }
     }
 
-    public synchronized void returnBook() {
-        isAvailable = true;
-        System.out.println("Book returned: " + title);
+    public synchronized void returnBook(String userName) {
+        if (!isAvailable) {
+            isAvailable = true;
+            System.out.println(userName + ": Returned \"" + title + "\"");
+        } else {
+            System.out.println(userName + ": \"" + title + "\" was not checked out.");
+        }
     }
 
     public boolean isAvailable() {
         return isAvailable;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     @Override
@@ -36,4 +44,5 @@ public class Book {
         return title + " by " + author + (isAvailable ? " (Available)" : " (Checked out)");
     }
 }
+
 
