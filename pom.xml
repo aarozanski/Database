@@ -28,6 +28,13 @@
             <version>3.41.2.2</version> <!-- Make sure to use the latest version available -->
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
