@@ -14,19 +14,24 @@ public class User implements Runnable {
     public void run() {
         for (int i = 0; i < 3 + random.nextInt(3); i++) { // Perform 3-5 actions
             int action = random.nextInt(3);
+            int bookIndex = library.size() > 0 ? random.nextInt(library.size()) : -1;
             switch (action) {
                 case 0: // Check out a book
-                    // Simplified: assuming there's always at least one book to check out
-                    library.checkOutBook(random.nextInt(library.size()));
+                    if (bookIndex != -1) library.checkOutBook(bookIndex);
                     break;
                 case 1: // Return a book
-                    library.returnBook(random.nextInt(library.size()));
+                    if (bookIndex != -1) library.returnBook(bookIndex);
                     break;
                 case 2: // Search for a book
-                    library.isAvailable(random.nextInt(library.size()));
+                    if (bookIndex != -1 && library.isAvailable(bookIndex)) {
+                        System.out.println("Book is available for checkout.");
+                    } else {
+                        System.out.println("Book is not available.");
+                    }
                     break;
             }
         }
     }
 }
+
 
