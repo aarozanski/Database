@@ -8,38 +8,40 @@ public class Library {
 
     public synchronized void addBook(Book book) {
         books.add(book);
-        System.out.println("Added: " + book);
+        System.out.println("Library: Added \"" + book.getTitle() + "\"");
     }
 
-    public void displayAvailableBooks() {
-        System.out.println("Available Books:");
-        synchronized (books) {
-            books.stream().filter(Book::isAvailable).forEach(System.out::println);
+    public synchronized void checkOutBook(int index, String userName) {
+        if (index >= 0 && index < books.size()) {
+            books.get(index).checkOut(userName);
         }
+    }
+
+    public synchronized void returnBook(int index, String userName) {
+        if (index >= 0 && index < books.size()) {
+            books.get(index).returnBook(userName);
+        }
+    }
+
+    public synchronized boolean isAvailable(int index) {
+        return index >= 0 && index < books.size() && books.get(index).isAvailable();
     }
 
     public synchronized int size() {
         return books.size();
     }
 
-    public synchronized void checkOutBook(int index) {
-        if (index >= 0 && index < books.size()) {
-            books.get(index).checkOut();
-        }
+    public synchronized String getBookTitle(int index) {
+        return index >= 0 && index < books.size() ? books.get(index).getTitle() : "";
     }
 
-    public synchronized void returnBook(int index) {
-        if (index >= 0 && index < books.size()) {
-            books.get(index).returnBook();
+    public void displayAvailableBooks() {
+        System.out.println("Final available books in library:");
+        synchronized (books) {
+            books.stream().filter(Book::isAvailable).forEach(System.out::println);
         }
-    }
-
-    public synchronized boolean isAvailable(int index) {
-        if (index >= 0 && index < books.size()) {
-            return books.get(index).isAvailable();
-        }
-        return false;
     }
 }
+
 
 
