@@ -5,7 +5,7 @@ import java.net.*;
 
 public class SimpleServer {
     public static void main(String[] args) {
-        int port = 5000; // Server will listen on this port.
+        int port = 5001; // Server will listen on this port.
 
         // Try-with-resources to ensure that the server socket is closed properly
         try (ServerSocket serverSocket = new ServerSocket(port)) {
