@@ -1,4 +1,4 @@
-package week_10;
+package week_10.library;
 
 import java.util.Random;
 

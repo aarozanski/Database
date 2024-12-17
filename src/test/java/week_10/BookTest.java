@@ -3,6 +3,7 @@ package week_10;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import week_10.library.Book;
 
 public class BookTest {
     private Book book; // Declare a Book object that will be used in the tests.

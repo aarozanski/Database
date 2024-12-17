@@ -1,4 +1,4 @@
-package week_10;
+package week_10.library;
 
 public class LibrarySimulation {
     public static void main(String[] args) throws InterruptedException {

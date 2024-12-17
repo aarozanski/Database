@@ -1,4 +1,4 @@
-package week_10;
+package week_10.library;
 
 public class Book {
     private final int id;
