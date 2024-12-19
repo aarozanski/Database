@@ -8,4 +8,11 @@ public class StringReversal {
             s[j] = temp;
         }
     }
+
+    public static void main(String[] args) {
+        char[] testArray = {'h', 'e', 'l', 'l', 'o'};
+        StringReversal sr = new StringReversal();
+        sr.reverseString(testArray);
+        System.out.println(testArray);
+    }
 }
